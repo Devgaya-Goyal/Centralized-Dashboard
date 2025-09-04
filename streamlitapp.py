@@ -1388,7 +1388,7 @@ elif section == "Projects":
         user_query = st.text_input("Enter your query:")
         if st.button("Process with Gemini Agent"):
             if user_query:
-                model = OpenAI(api_key="AIzaSyDbxKOCD7Rh69gbQvQdnxElwx0JVhJfVe4", base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
+                model = OpenAI(api_key="Your_API_key_here.", base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
                 msg = [
                     {"role": "system", "content": "You are a very skilled and an all rounder person with a high level knowledge of each and every techs and other stuff.The repit bigonse you generate to the query has to be 4 liner at most and bigger if the person needs "},
                     {"role": "user", "content": f"Generate the answer according to {user_query}"}
