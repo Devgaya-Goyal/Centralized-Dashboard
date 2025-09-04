@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera Capture Example</title>
+</head>
+<body>
+  <h2>Open Camera and Take Picture</h2>
+
+  <!-- Live Camera Feed -->
+  <video id="video" width="400" height="300" autoplay></video>
+  <br>
+
+  <!-- Button to Capture -->
+  <button id="snap">Click Picture</button>
+  <br><br>
+
+  <!-- Canvas to Show Captured Photo -->
+  <canvas id="canvas" width="400" height="300"></canvas>
+
+  <script>
+    // Access the camera
+    const video = document.getElementById('video');
+
+    // Prompt user for camera access
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        video.srcObject = stream;
+      })
+      .catch((err) => {
+        console.error("Error accessing camera: ", err);
+      });
+
+    // Capture photo on button click
+    const canvas = document.getElementById('canvas');
+    const snap = document.getElementById('snap');
+    const context = canvas.getContext('2d');
+
+    snap.addEventListener('click', () => {
+      context.drawImage(video, 0, 0, 400, 300);
+    });
+  </script>
+</body>
+</html>
